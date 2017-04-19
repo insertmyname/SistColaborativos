@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Ulatina.Colaborativos.Operaciones.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class Tester
     {
         [TestMethod]
         public void TestMethod1()
