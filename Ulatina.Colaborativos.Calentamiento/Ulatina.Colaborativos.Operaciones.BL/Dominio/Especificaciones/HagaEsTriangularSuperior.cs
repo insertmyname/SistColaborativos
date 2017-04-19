@@ -7,5 +7,9 @@ namespace Ulatina.Colaborativos.Operaciones.BL.Dominio.Especificaciones
 {
     public class HagaEsTriangularSuperior
     {
+        public bool RealizarLaOperacionMatematica(double[,] matriz1)
+        {
+            return false;
+        }
     }
 }

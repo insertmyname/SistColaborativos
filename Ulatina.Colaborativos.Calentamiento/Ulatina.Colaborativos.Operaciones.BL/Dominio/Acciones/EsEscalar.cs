@@ -12,9 +12,9 @@ namespace Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones
         /// </summary>
         /// <param name="matriz1">Lista de los elementos que se desean verificar sus valores</param>
         /// <returns>Los valores de la diagonal principal son iguales y los demás son cero</returns> 
-        public double HacerOperacion(double[,] matriz1)
+        public bool HacerOperacion(double[,] matriz1)
         {
-            return 0;
+            return false;
         }
     }
 }

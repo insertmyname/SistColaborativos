@@ -7,5 +7,9 @@ namespace Ulatina.Colaborativos.Operaciones.BL.Dominio.Especificaciones
 {
     public class HagaLaMultiplicacion
     {
+        public double[,] RealizarLaOperacionMatematica(double[,] matriz1, double[,] matriz2)
+        {
+            return matriz1;
+        }
     }
 }

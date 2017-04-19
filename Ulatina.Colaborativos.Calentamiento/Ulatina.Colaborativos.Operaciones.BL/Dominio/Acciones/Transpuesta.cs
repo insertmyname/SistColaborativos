@@ -12,9 +12,9 @@ namespace Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones
         /// </summary>
         /// <param name="matriz1">Lista de los elementos que se desean cambiar su orden</param>
         /// <returns>Los valores de las columnas se convierten en los valores de lsa filas</returns>        
-        public double HacerOperacion(double[,] matriz1)
+        public double[,] HacerOperacion(double[,] matriz1)
         {
-            return 0;
+            return matriz1;
         }
     }
 }
