@@ -21,7 +21,8 @@ namespace Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones
             Especificaciones.HagaLaSuma laEspecificacion =
                     new Especificaciones.HagaLaSuma();
             resultado = laEspecificacion.RealizarLaOperacionMatematica(matriz1,matriz2);
-            return matriz1;
+
+            return resultado;
         }
 
     }

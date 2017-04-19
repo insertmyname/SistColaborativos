@@ -9,91 +9,27 @@ namespace Ulatina.Colaborativos.Operaciones.BL.Dominio.Especificaciones
     {
         public double[,] RealizarLaOperacionMatematica(double[,] matriz1, double[,] matriz2)
         {
-
-            int filas, columnas, contador;
+           
             double[,] matrizTotalSuma;
+            var laValidacion = new Validaciones.ValidacionesDeLasMatrices();
 
-            Console.WriteLine("Digite la cantidad de filas que desea para las dos matrices");
-            filas = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Digite la cantidad de columnas que desea para las dos matrices");
-            columnas = Convert.ToInt32(Console.ReadLine());
-
-            matriz1 = new double[filas, columnas];
-            matriz2 = new double[filas, columnas];
-            matrizTotalSuma = new double[filas, columnas];
-
-            contador = 1;
-
-            //Agregar numeros a la matriz 1
-            Console.WriteLine("Digite el(los) numero(s) que desea agregar en la(s) fila(s) y columna(s) de la matriz 1");
-            for (int i = 0; i < filas; i++)
+            if (laValidacion.dosMatricesConIgualCantidadFilasYColumnas(matriz1, matriz2))
             {
-                Console.WriteLine("Fila: " + contador);
-                for (int j = 0; j < columnas; j++)
+                matrizTotalSuma = new double[matriz1.GetLength(0), matriz1.GetLength(1)];
+
+                //Ejecucion de la suma entre matriz 1 y matriz1
+                for (int i = 0; i < matrizTotalSuma.GetLength(0); i++)
                 {
-
-                    matriz1[i, j] = Convert.ToInt32(Console.ReadLine());
+                    for (int j = 0; j < matrizTotalSuma.GetLength(1); j++)
+                    {
+                        matrizTotalSuma[i, j] = matriz1[i, j] + matriz2[i, j];
+                    }
                 }
-                contador++;
             }
-
-            contador = 1;
-
-            //Agregar numeros a la matriz 2
-            Console.WriteLine("Digite el o los numero(s) que desea agregar en la(s) fila(s) y columna(s) de la matriz 2");
-            for (int i = 0; i < filas; i++)
-            {
-                Console.WriteLine("Fila: " + contador);
-                for (int j = 0; j < columnas; j++)
-                {
-                    matriz2[i, j] = Convert.ToInt32(Console.ReadLine());
-                }
-                contador++;
-            }
-
-            //Ejecucion de la suma entre matriz 1 y matriz1
-            for (int i = 0; i < filas; i++)
-            {
-                for (int j = 0; j < columnas; j++)
-                {
-                    matrizTotalSuma[i, j] = matriz1[i, j] + matriz2[i, j];
-                }
-
-                Console.WriteLine();
-            }
-
-            //Demostracion de matriz 1
-            Console.WriteLine("Matriz 1: ");
-            for (int i = 0; i < filas; i++)
-            {
-                for (int j = 0; j < columnas; j++)
-                {
-                    Console.Write(matriz1[i, j] + " ");
-                }
-                Console.WriteLine();
-            }
-
-            //Demostracion de matriz 2
-            Console.WriteLine("Matriz 2: ");
-            for (int i = 0; i < filas; i++)
-            {
-                for (int j = 0; j < columnas; j++)
-                {
-                    Console.Write(matriz2[i, j] + " ");
-                }
-                Console.WriteLine();
-            }
-
-            //Desmostracion de la matriz final, de la suma
-            Console.WriteLine("Suma entre matriz 1 y matriz 2: ");
-            for (int i = 0; i < filas; i++)
-            {
-                for (int j = 0; j < columnas; j++)
-                {
-                    Console.Write(matrizTotalSuma[i, j] + " ");
-                }
-                Console.WriteLine();
-            }
+            else
+                throw new ArgumentOutOfRangeException("Ambas matrices deben tener la misma cantidad de filas y columnas.");
+                 
+            return matrizTotalSuma;
         }
     }
 }
