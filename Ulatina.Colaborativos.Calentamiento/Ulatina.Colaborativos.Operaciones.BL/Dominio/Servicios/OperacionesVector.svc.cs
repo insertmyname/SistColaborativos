@@ -16,7 +16,6 @@ namespace Ulatina.Colaborativos.Operaciones.BL
             return string.Format("You entered: {0}", value);
         }
 
-        /*
         public CompositeType GetDataUsingDataContract(CompositeType composite)
         {
             if (composite == null)
@@ -29,8 +28,8 @@ namespace Ulatina.Colaborativos.Operaciones.BL
             }
             return composite;
         }
-        */
-        public double[,] Sumar(double[,] matriz1, double[,] matriz2)
+
+        public double[,] Suma(double[,] matriz1, double[,] matriz2)
         {
             // declare la variable para invocar a la acción
             Dominio.Acciones.Suma laAccion = new Dominio.Acciones.Suma();
@@ -117,8 +116,6 @@ namespace Ulatina.Colaborativos.Operaciones.BL
             // retorne el resultado
             return elResultado;
         }
-        public void DoWork()
-        {
-        }
+       
     }
 }
