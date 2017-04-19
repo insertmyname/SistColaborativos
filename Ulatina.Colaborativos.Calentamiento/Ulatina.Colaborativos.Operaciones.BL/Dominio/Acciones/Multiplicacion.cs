@@ -16,7 +16,12 @@ namespace Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones
         /// <returns>Total obtenido de la multiplicacion entre los elementos de dos matrices</returns>
         public double[,] HacerOperacion(double[,] matriz1, double[,] matriz2)
         {
-            return matriz1;
+            double[,] resultado;
+
+            Especificaciones.HagaLaMultiplicacion laEspecificacion =
+                    new Especificaciones.HagaLaMultiplicacion();
+            resultado = laEspecificacion.RealizarLaOperacionMatematica(matriz1, matriz2);
+            return resultado;
         }
     }
 }

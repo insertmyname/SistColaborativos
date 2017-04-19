@@ -14,7 +14,12 @@ namespace Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones
         /// <returns>Los valores de la diagonal principal son iguales y los demás son cero</returns> 
         public bool HacerOperacion(double[,] matriz1)
         {
-            return false;
+            bool resultado;
+
+            Especificaciones.HagaEsEscalar laEspecificacion =
+                    new Especificaciones.HagaEsEscalar();
+            resultado = laEspecificacion.RealizarLaOperacionMatematica(matriz1);
+            return resultado;
         }
     }
 }

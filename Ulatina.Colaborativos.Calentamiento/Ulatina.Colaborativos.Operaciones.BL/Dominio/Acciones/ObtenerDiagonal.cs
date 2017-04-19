@@ -14,8 +14,12 @@ namespace Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones
         /// <returns>Los valores de la diagonal principal en una variable</returns> 
         public IEnumerable<double> HacerOperacion(double[,] matriz1)
         {
-            IEnumerable<double> test = new List<double>();
-            return test;
+            IEnumerable<double> resultado;
+            
+            Especificaciones.HagaObtenerDiagonal laEspecificacion =
+                    new Especificaciones.HagaObtenerDiagonal();
+            resultado = laEspecificacion.RealizarLaOperacionMatematica(matriz1);
+            return resultado;
         }
     }
 }

@@ -14,7 +14,12 @@ namespace Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones
         /// <returns>Los valores de las columnas se convierten en los valores de lsa filas</returns>        
         public double[,] HacerOperacion(double[,] matriz1)
         {
-            return matriz1;
+            double[,] resultado;
+
+            Especificaciones.HagaLaTranspuesta laEspecificacion =
+                    new Especificaciones.HagaLaTranspuesta();
+            resultado = laEspecificacion.RealizarLaOperacionMatematica(matriz1);
+            return resultado;
         }
     }
 }

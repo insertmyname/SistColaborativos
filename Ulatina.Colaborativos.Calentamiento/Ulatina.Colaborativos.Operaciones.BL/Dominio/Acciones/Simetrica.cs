@@ -14,7 +14,12 @@ namespace Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones
         /// <returns>Los valores de la matriz original y el de la transpuesta son iguales</returns> 
         public bool HacerOperacion(double[,] matriz1)
         {
-            return false;
+            bool resultado;
+
+            Especificaciones.HagaLaSimetrica laEspecificacion =
+                    new Especificaciones.HagaLaSimetrica();
+            resultado = laEspecificacion.RealizarLaOperacionMatematica(matriz1);
+            return resultado;
         }
     }
 }

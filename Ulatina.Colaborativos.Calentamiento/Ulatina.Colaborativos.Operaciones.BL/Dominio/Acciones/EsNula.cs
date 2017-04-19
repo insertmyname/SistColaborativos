@@ -14,7 +14,12 @@ namespace Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones
         /// <returns>Los valores de la matriz deben ser cero</returns> 
          public bool HacerOperacion(double[,] matriz1)
         {
-            return false;
+            bool resultado;
+
+            Especificaciones.HagaEsNula laEspecificacion =
+                    new Especificaciones.HagaEsNula();
+            resultado = laEspecificacion.RealizarLaOperacionMatematica(matriz1);
+            return resultado;
         }
 }
 }

@@ -15,7 +15,12 @@ namespace Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones
         /// la diagonal son cero</returns> 
         public bool HacerOperacion(double[,] matriz1)
         {
-            return false;
+            bool resultado;
+
+            Especificaciones.HagaEsTriangularSuperior laEspecificacion =
+                    new Especificaciones.HagaEsTriangularSuperior();
+            resultado = laEspecificacion.RealizarLaOperacionMatematica(matriz1);
+            return resultado;
         }
     }
 }
