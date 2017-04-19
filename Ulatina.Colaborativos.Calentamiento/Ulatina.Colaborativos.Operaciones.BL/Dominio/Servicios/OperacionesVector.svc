@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Ulatina.Colaborativos.Operaciones.BL.Dominio.Servicios.OperacionesVector" CodeBehind="OperacionesVector.svc.cs" %>
