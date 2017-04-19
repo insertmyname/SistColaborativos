@@ -9,7 +9,7 @@ namespace Ulatina.Colaborativos.Operaciones.BL.Dominio.Especificaciones
     {
         public double[,] RealizarLaOperacionMatematica(double[,] matriz1, double[,] matriz2)
         {
-            return matriz1;
+            return 0;
         }
     }
 }
