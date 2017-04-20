@@ -11,7 +11,7 @@ namespace Ulatina.Colaborativos.Operaciones.Tests
         [TestMethod]
         public void Automatizado()
         {
-            esNulaPruebaIncorrecta();              
+            esEscalarPruebaIncorrecta();              
         }
 
         public void sumaPruebaCorrecta()
@@ -169,32 +169,90 @@ namespace Ulatina.Colaborativos.Operaciones.Tests
 
         public void esEscalarPruebaCorrecta()
         {
-           
+            //Prueba Correcta valores diagonal con enteros
+            // definición del escenario
+            var listaDeElementosMatriz1 = new double[3, 3] { { 2, 0, 0 }, { 0, 5, 0 }, { 0, 0, 1 } };
+
+            // invoque al método de prueba
+            var laAccion = new Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones.EsEscalar();
+            var elResultadoObtenido = laAccion.HacerOperacion(listaDeElementosMatriz1);
+
+            // verifique el resultado obtenido
+            Assert.IsTrue(elResultadoObtenido);
         }
 
         public void esEscalarPruebaIncorrecta()
         {
+            //Prueba Incorrecta valores no solamente la diagonal contiene los enteros
+            // definición del escenario
+            var listaDeElementosMatriz1 = new double[3, 3] { { 0, 0, 0 }, { 0, 5, 7 }, { 0, 0, 1 } };
 
+            // invoque al método de prueba
+            var laAccion = new Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones.EsEscalar();
+            var elResultadoObtenido = laAccion.HacerOperacion(listaDeElementosMatriz1);
+
+            // verifique el resultado obtenido
+            Assert.IsTrue(elResultadoObtenido);
         }
 
         public void esTriangularSuperiorPruebaCorrecta()
         {
+            //Prueba Correcta valores debajo de diagonal 0 y arriba enteros
+            // definición del escenario
+            var listaDeElementosMatriz1 = new double[3, 3] { { 6, 9, 3 }, { 0, 5, 2 }, { 0, 0, 1 } };
 
+            // invoque al método de prueba
+            var laAccion = new Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones.EsTriangularSuperior();
+            var elResultadoObtenido = laAccion.HacerOperacion(listaDeElementosMatriz1);
+
+            // verifique el resultado obtenido
+            Assert.IsTrue(elResultadoObtenido);
         }
 
         public void esTriangularSuperiorPruebaIncorrecta()
         {
+            //Prueba Incorrecta tringular inferior, en lugar de superior
+            // definición del escenario
+            var listaDeElementosMatriz1 = new double[3, 3] { { 2, 0, 0 }, { 4, 2, 0 }, { 9, 5, 6 } };
 
+            // invoque al método de prueba
+            var laAccion = new Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones.EsTriangularSuperior();
+            var elResultadoObtenido = laAccion.HacerOperacion(listaDeElementosMatriz1);
+
+            // verifique el resultado obtenido
+            Assert.IsTrue(elResultadoObtenido);
         }
 
         public void obtenerDiagonalPruebaCorrecta()
         {
+            //Prueba Correcta presenta todos sus diagonales
+            // definición del escenario
+            var listaDeElementosMatriz1 = new double[4, 4] { { 6, 0, 0, 0 }, { 4, 3, 0, 0 }, { 5, 4, 2, 0 },
+                { 8, 7, 1, 9 } };
+            var elResultadoRequerido = new double[4] { 6, 3, 2, 9};            
 
+            // invoque al método de prueba
+            var laAccion = new Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones.ObtenerDiagonal();
+            var elResultadoObtenido = laAccion.HacerOperacion(listaDeElementosMatriz1);
+
+            // verifique el resultado obtenido
+
+            CollectionAssert.AreEqual(elResultadoRequerido, elResultadoObtenido);
         }
 
         public void obtenerDiagonalPruebaIncorrecta()
         {
+            //Prueba Incorrecta diagonal resultado incorrecta
+            // definición del escenario
+            var listaDeElementosMatriz1 = new double[3, 3] { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } };
+            var elResultadoRequerido = new double[3] { 1, 2, 1 };
 
+            // invoque al método de prueba
+            var laAccion = new Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones.ObtenerDiagonal();
+            var elResultadoObtenido = laAccion.HacerOperacion(listaDeElementosMatriz1);
+
+            // verifique el resultado obtenido
+            Assert.AreEqual(elResultadoRequerido, elResultadoObtenido);
         }
     }
 }
