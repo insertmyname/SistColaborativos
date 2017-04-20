@@ -11,12 +11,12 @@ namespace Ulatina.Colaborativos.Operaciones.Tests
         [TestMethod]
         public void Automatizado()
         {
-            SumaPruebaCorrecta();              
+            SimétricaPruebaIncorrecta();              
         }
 
-        public void SumaPruebaCorrecta()
+        public void sumaPruebaCorrecta()
         {
-            //Prueba Correcta números positivos y negativos
+            //Prueba Correcta números positivos, negativos y decimales
             // definición del escenario
             var listaDeElementosMatriz1 = new double[3, 3] { { 3, -5, 4.7 }, { 9.8, 8, -7 }, { -6, 4.9, 2 } };
             var listaDeElementosMatriz2 = new double[3, 3] { { -2, -1.3, 1 }, { 5.2, -7, 6 }, { 9, 7.5, -4 } };
@@ -29,7 +29,7 @@ namespace Ulatina.Colaborativos.Operaciones.Tests
             // verifique el resultado obtenido
             CollectionAssert.AreEqual(elResultadoEsperado, elResultadoObtenido);                      
         }
-        public void SumaPruebaIncorrecta()
+        public void sumaPruebaIncorrecta()
         {
             //Prueba Incorrecta matrices de diferentes longitudes 
             // definición del escenario
@@ -45,9 +45,9 @@ namespace Ulatina.Colaborativos.Operaciones.Tests
             CollectionAssert.AreEqual(elResultadoRequerido, elResultadoCalculado);
         }
 
-        public void MultiplicacionPruebaCorrecta()
+        public void multiplicacionPruebaCorrecta()
         {
-            //Prueba Correcta números positivos y negativos
+            //Prueba Correcta números positivos, negativos y decimales
             // definición del escenario
             var listaDeElementosMatriz1 = new double[2, 3] { { 5, -2.5, 3 }, { -5, 5, 4 } };
             var listaDeElementosMatriz2 = new double[3, 1] { { 5 }, { -2 }, { 4.0 } };
@@ -61,9 +61,9 @@ namespace Ulatina.Colaborativos.Operaciones.Tests
             CollectionAssert.AreEqual(elResultadoEsperado, elResultadoObtenido);
         }
 
-        public void MultiplicacionPruebaIncorrecta()
+        public void multiplicacionPruebaIncorrecta()
         {
-            //Prueba Correcta números positivos y negativos
+            //Prueba Incorrecta # de columnas de matriz 1 no igual a # de filas de matriz 2
             // definición del escenario
             var listaDeElementosMatriz1 = new double[2, 3] { { 5, -2.5, 3 }, { -5, 5, 4 } };
             var listaDeElementosMatriz2 = new double[1, 1] { { 5 } };
@@ -77,5 +77,97 @@ namespace Ulatina.Colaborativos.Operaciones.Tests
             CollectionAssert.AreEqual(elResultadoEsperado, elResultadoObtenido);
         }
 
+        public void transpuestaPruebaCorrecta()
+        {
+            //Prueba Correcta números positivos, negativos y decimales
+            // definición del escenario
+            var listaDeElementosMatriz1 = new double[7, 3] { { 0, 0.5, 4 }, { -1, 0, 4.7 }, { 0, 1.8, 0 }, 
+                { 0, -3, 2 }, { 0.2, 2, -3 }, { 0, 3.9, -4 }, { 3, 3, -1 } };            
+            var elResultadoEsperado = new double[3, 7] { { 0, -1, 0, 0, 0.2, 0, 3 }, { 0.5, 0, 1.8, -3, 2, 3.9, 3 },
+                { 4, 4.7, 0, 2, -3, -4, -1} };
+
+            // invoque al método de prueba
+            var laAccion = new Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones.Transpuesta();
+            var elResultadoObtenido = laAccion.HacerOperacion(listaDeElementosMatriz1);
+
+            // verifique el resultado obtenido
+            CollectionAssert.AreEqual(elResultadoEsperado, elResultadoObtenido);
+        }
+
+        public void transpuestaPruebaIncorrecta()
+        {
+            //Prueba Incorrecta la matriz que se agrega como argumento no tiene ningún elemento
+            // definición del escenario
+            var listaDeElementosMatriz1 = new double[0, 0] { };
+            var elResultadoEsperado = new double[3, 7] { { 0, -1, 0, 0, 0.2, 0, 3 }, { 0.5, 0, 1.8, -3, 2, 3.9, 3 },
+                { 4, 4.7, 0, 2, -3, -4, -1} };
+
+            // invoque al método de prueba
+            var laAccion = new Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones.Transpuesta();
+            var elResultadoObtenido = laAccion.HacerOperacion(listaDeElementosMatriz1);
+
+            // verifique el resultado obtenido            
+            CollectionAssert.AreEqual(elResultadoEsperado, elResultadoObtenido);
+        }
+
+        public void simétricaPruebaCorrecta()
+        {
+            //Prueba Correcta números positivos, negativos
+            // definición del escenario
+            var listaDeElementosMatriz1 = new double[3, 3] { { 0, 1, 2 }, { -1, 0, 3 }, { -2, -3, 0} };
+            var elResultadoEsperado = true;
+
+            // invoque al método de prueba
+            var laAccion = new Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones.Simetrica();
+            var elResultadoObtenido = laAccion.HacerOperacion(listaDeElementosMatriz1);
+
+            // verifique el resultado obtenido
+            Assert.AreEqual(elResultadoEsperado, elResultadoObtenido);
+        }
+
+        public void simétricaPruebaIncorrecta()
+        {
+            //Prueba Inorrecta matriz no es cuadrada
+            // definición del escenario
+            var listaDeElementosMatriz1 = new double[3, 2] { { 2, 1 }, { 1, 0 }, { 3, -2 } };
+            var elResultadoEsperado = true;
+
+            // invoque al método de prueba
+            var laAccion = new Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones.Simetrica();
+            var elResultadoObtenido = laAccion.HacerOperacion(listaDeElementosMatriz1);
+
+            // verifique el resultado obtenido
+            Assert.AreEqual(elResultadoEsperado, elResultadoObtenido);
+        }
+
+        public void esNulaPruebaCorrecta()
+        {
+            //Prueba Correcta números positivos, negativos
+            // definición del escenario
+            var listaDeElementosMatriz1 = new double[3, 3] { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
+            var elResultadoEsperado = true;
+
+            // invoque al método de prueba
+            var laAccion = new Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones.EsNula();
+            var elResultadoObtenido = laAccion.HacerOperacion(listaDeElementosMatriz1);
+
+            // verifique el resultado obtenido
+            Assert.AreEqual(elResultadoEsperado, elResultadoObtenido);
+        }
+
+        public void esNulaPruebaIncorrecta()
+        {
+            //Prueba Inorrecta matriz no es cuadrada
+            // definición del escenario
+            var listaDeElementosMatriz1 = new double[3, 2] { { 2, 1 }, { 1, 0 }, { 3, -2 } };
+            var elResultadoEsperado = true;
+
+            // invoque al método de prueba
+            var laAccion = new Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones.Simetrica();
+            var elResultadoObtenido = laAccion.HacerOperacion(listaDeElementosMatriz1);
+
+            // verifique el resultado obtenido
+            Assert.AreEqual(elResultadoEsperado, elResultadoObtenido);
+        }
     }
 }
