@@ -11,7 +11,7 @@ namespace Ulatina.Colaborativos.Operaciones.Tests
         [TestMethod]
         public void Automatizado()
         {
-            SimétricaPruebaIncorrecta();              
+            esNulaPruebaIncorrecta();              
         }
 
         public void sumaPruebaCorrecta()
@@ -115,59 +115,86 @@ namespace Ulatina.Colaborativos.Operaciones.Tests
             //Prueba Correcta números positivos, negativos
             // definición del escenario
             var listaDeElementosMatriz1 = new double[3, 3] { { 0, 1, 2 }, { -1, 0, 3 }, { -2, -3, 0} };
-            var elResultadoEsperado = true;
-
+            
             // invoque al método de prueba
             var laAccion = new Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones.Simetrica();
             var elResultadoObtenido = laAccion.HacerOperacion(listaDeElementosMatriz1);
 
             // verifique el resultado obtenido
-            Assert.AreEqual(elResultadoEsperado, elResultadoObtenido);
+            Assert.IsTrue(elResultadoObtenido);
         }
 
         public void simétricaPruebaIncorrecta()
         {
             //Prueba Inorrecta matriz no es cuadrada
             // definición del escenario
-            var listaDeElementosMatriz1 = new double[3, 2] { { 2, 1 }, { 1, 0 }, { 3, -2 } };
-            var elResultadoEsperado = true;
+            var listaDeElementosMatriz1 = new double[3, 2] { { 2, 1 }, { 1, 0 }, { 3, -2 } };            
 
             // invoque al método de prueba
             var laAccion = new Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones.Simetrica();
             var elResultadoObtenido = laAccion.HacerOperacion(listaDeElementosMatriz1);
 
             // verifique el resultado obtenido
-            Assert.AreEqual(elResultadoEsperado, elResultadoObtenido);
+            Assert.IsTrue(elResultadoObtenido);
         }
 
         public void esNulaPruebaCorrecta()
         {
-            //Prueba Correcta números positivos, negativos
+            //Prueba Correcta valor resultante es nulo o cero.
             // definición del escenario
             var listaDeElementosMatriz1 = new double[3, 3] { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
-            var elResultadoEsperado = true;
 
             // invoque al método de prueba
             var laAccion = new Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones.EsNula();
             var elResultadoObtenido = laAccion.HacerOperacion(listaDeElementosMatriz1);
 
             // verifique el resultado obtenido
-            Assert.AreEqual(elResultadoEsperado, elResultadoObtenido);
+            Assert.IsTrue(elResultadoObtenido);
         }
 
         public void esNulaPruebaIncorrecta()
         {
-            //Prueba Inorrecta matriz no es cuadrada
+            //Prueba Incorrecta valor resultante no es cero o nulo
             // definición del escenario
-            var listaDeElementosMatriz1 = new double[3, 2] { { 2, 1 }, { 1, 0 }, { 3, -2 } };
-            var elResultadoEsperado = true;
+            var listaDeElementosMatriz1 = new double[3, 3] { { 0, 7, 0 }, { -8, 0, 0 }, { 0, 7, 3 } };
 
             // invoque al método de prueba
-            var laAccion = new Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones.Simetrica();
+            var laAccion = new Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones.EsNula();
             var elResultadoObtenido = laAccion.HacerOperacion(listaDeElementosMatriz1);
 
             // verifique el resultado obtenido
-            Assert.AreEqual(elResultadoEsperado, elResultadoObtenido);
+            Assert.IsTrue(elResultadoObtenido);
+
+        }
+
+        public void esEscalarPruebaCorrecta()
+        {
+           
+        }
+
+        public void esEscalarPruebaIncorrecta()
+        {
+
+        }
+
+        public void esTriangularSuperiorPruebaCorrecta()
+        {
+
+        }
+
+        public void esTriangularSuperiorPruebaIncorrecta()
+        {
+
+        }
+
+        public void obtenerDiagonalPruebaCorrecta()
+        {
+
+        }
+
+        public void obtenerDiagonalPruebaIncorrecta()
+        {
+
         }
     }
 }
