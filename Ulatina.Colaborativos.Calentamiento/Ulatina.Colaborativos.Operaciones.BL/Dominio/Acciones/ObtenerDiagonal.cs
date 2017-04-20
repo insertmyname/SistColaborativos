@@ -12,9 +12,9 @@ namespace Ulatina.Colaborativos.Operaciones.BL.Dominio.Acciones
         /// </summary>
         /// <param name="matriz1">Lista de los elementos que se desean obtener sus valores</param>
         /// <returns>Los valores de la diagonal principal en una variable</returns> 
-        public IEnumerable<double> HacerOperacion(double[,] matriz1)
+        public double[] HacerOperacion(double[,] matriz1)
         {
-            IEnumerable<double> resultado;
+            double[] resultado;
             
             Especificaciones.HagaObtenerDiagonal laEspecificacion =
                     new Especificaciones.HagaObtenerDiagonal();

@@ -106,12 +106,12 @@ namespace Ulatina.Colaborativos.Operaciones.BL
             return elResultado;
         }
 
-        public IEnumerable<double> ObtenerDiagonal(double[,] matriz1)
+        public double[] ObtenerDiagonal(double[,] matriz1)
         {
             // declare la variable para invocar a la acción
             Dominio.Acciones.ObtenerDiagonal laAccion = new Dominio.Acciones.ObtenerDiagonal();
             // invoque al método correspondiente
-            IEnumerable<double> elResultado = laAccion.HacerOperacion(matriz1);
+            double[] elResultado = laAccion.HacerOperacion(matriz1);
 
             // retorne el resultado
             return elResultado;

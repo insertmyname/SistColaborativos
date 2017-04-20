@@ -78,7 +78,7 @@ namespace Ulatina.Colaborativos.Operaciones.BL
         /// <param name="matriz1">Lista de los elementos que se desean obtener sus valores</param>
         /// <returns>Los valores de la diagonal principal en una variable</returns>          
         [OperationContract]
-        IEnumerable<double> ObtenerDiagonal(double[,] matriz1);
+        double[] ObtenerDiagonal(double[,] matriz1);
 
         [OperationContract]
         string GetData(int value);
