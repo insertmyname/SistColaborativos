@@ -13,7 +13,11 @@ namespace Ulatina.Colaborativos.Operaciones.BL.Dominio.Especificaciones
             double[,] matrizTotalSuma;
             var laValidacion = new Validaciones.ValidacionesDeLasMatrices();
 
-            if (laValidacion.dosMatricesConIgualCantidadFilasYColumnas(matriz1, matriz2))
+            if (laValidacion.LaMatrizEstaVacia(matriz1))
+                throw new ArgumentNullException("La primera matriz no contiene ningún elemento");
+            else if(laValidacion.LaMatrizEstaVacia(matriz2))
+                throw new ArgumentNullException("La segunda matriz no contiene ningún elemento");
+            else if (laValidacion.dosMatricesConIgualCantidadFilasYColumnas(matriz1, matriz2))
             {
                 matrizTotalSuma = new double[matriz1.GetLength(0), matriz1.GetLength(1)];
 
@@ -22,7 +26,7 @@ namespace Ulatina.Colaborativos.Operaciones.BL.Dominio.Especificaciones
                 {
                     for (int j = 0; j < matrizTotalSuma.GetLength(1); j++)
                     {
-                        matrizTotalSuma[i, j] = matriz1[i, j] + matriz2[i, j];
+                        matrizTotalSuma[i, j] = matriz1[i, j] + matriz2[i, j];                       
                     }
                 }
             }
